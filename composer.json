@@ -1,0 +1,12 @@
+{
+    "name": "bermudaphp/jsonable",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Bermuda\\Stdlib\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^8.0|^8.1"
+    }
+}
