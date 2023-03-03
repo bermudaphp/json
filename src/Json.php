@@ -5,15 +5,17 @@ namespace Bermuda\Stdlib;
 final class Json
 {
     /**
-     * @param $content
+     * @param mixed $content
      * @param int $flags
      * @param int $depth
      * @return string
      * @throws \JsonException
      */
-    public static function encode($content, int $flags = 0, int $depth = 512): string
+    public static function encode(mixed $content, int $flags = 0, int $depth = 512): string
     {
         if ($content instanceof Jsonable) return $content->toJson($flags, $depth);
+        if ($content instanceof Arrayable) $content = $content->toArray();
+        
         return \json_encode($content, $flags | JSON_THROW_ON_ERROR, $depth);
     }
 
