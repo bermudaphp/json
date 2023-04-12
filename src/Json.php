@@ -54,7 +54,7 @@ final class Json
         if (!is_string($content)) return false;
 
         try {
-            json_decode($content, null, null, JSON_THROW_ON_ERROR);
+            json_decode($content, null, 512, JSON_THROW_ON_ERROR);
             return true;
         } catch (\Throwable $e) {
             return false;
